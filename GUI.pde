@@ -1,9 +1,10 @@
 //G4P Components for toolbox window
+
+
 GButton btnOpen; //open a video file
 
 public void createToolboxUI() {
   btnOpen = new GButton(this,10,10,100,40,"Open File");
-  toolboxWindow.addControl(btnOpen);
 }
 
 public void handleButtonEvents(GButton button, GEvent event) {
