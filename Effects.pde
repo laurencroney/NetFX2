@@ -1,11 +1,11 @@
 /*REPLACE THE EXAMPLE EFFECT BELOW WITH THE DESIRED EFFECT*/
   
-  
+  /*
 void Effect(int mode, PImage frame) {
   
 }
   
-/*
+*/
 void Effect(int mode, PImage cam) {
     //Threshold/posterize or whatever effects:
     //mode 1: standard posterize
@@ -68,4 +68,3 @@ void Effect(int mode, PImage cam) {
     cam.updatePixels();
     
 }
-*/

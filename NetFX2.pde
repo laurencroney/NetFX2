@@ -17,16 +17,12 @@ GWindow toolboxWindow;
 BlobDetection bd;
 
 boolean loaded = false; //is a video loaded?
+boolean fx_on = false; //turn effect on?
 boolean render = false; //should we save frames?
 
 void setup() {
   
   /*Set up the Toolbox UI*/
-  toolboxWindow =  GWindow.getWindow(this, "Toolbox", 100, 50, 680, 120, JAVA2D);
-  toolboxWindow.addDrawHandler(this, "toolboxDraw");
-  toolboxWindow.addMouseHandler(this, "windowMouse");
-  toolboxWindow.addKeyHandler(this, "windowKey");
-  toolboxWindow.addData(new MyData());
   createToolboxUI();
   
   background(0);
@@ -37,10 +33,11 @@ void setup() {
 void draw() {
   if(loaded) {
     m.read();
-    //Effect(0,m);
+    if(fx_on)
+      Effect(0,m);
     image(m,0,0,800,650);
     bd.computeBlobs(m.pixels);
-    drawBlobsAndEdges(true,true,#F23134);
+    drawBlobsAndEdgesOriginal(true,true);
     
     if(render) {
       if(m.width > 0 && m.height > 0)
